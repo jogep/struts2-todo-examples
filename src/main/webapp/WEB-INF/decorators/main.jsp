@@ -55,7 +55,7 @@
 </s:if>
 <div class="container-fluid">
     <div class="row-fluid">
-        <div id="content">
+        <div id="content" class="span12 page-header">
             <h1><decorator:title default="What's Up?"/></h1>
             <decorator:body/>
         </div>
