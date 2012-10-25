@@ -1,13 +1,11 @@
 package eu.strutters.example.todo.service;
 
-import org.hibernate.Criteria;
-import org.hibernate.Hibernate;
-import org.hibernate.LockOptions;
-import org.hibernate.Query;
+import org.hibernate.*;
 import org.springframework.dao.DataAccessException;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Nullable;
+import javax.inject.Inject;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,9 +19,12 @@ import java.util.List;
  */
 @SuppressWarnings("unchecked")
 @Transactional
-public abstract class GenericEntityService<T, I extends Serializable> extends GenericSessionAccessor {
+public abstract class GenericEntityService<T, I extends Serializable> {
 
-    protected abstract Class<T> entityClass();
+	@Inject
+	SessionFactory sessionFactory;
+
+	protected abstract Class<T> entityClass();
 
 	public T get( I id ) {
 		if (id != null) {
@@ -149,4 +150,11 @@ public abstract class GenericEntityService<T, I extends Serializable> extends Ge
 		Hibernate.initialize(toInitialize);
 	}
 
+	public Session getCurrentSession() {
+		return sessionFactory.getCurrentSession();
+	}
+
+	protected void clear() {
+		getCurrentSession().clear();
+	}
 }
