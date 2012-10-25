@@ -16,6 +16,7 @@ public class TodoItem {
 	String topic;
 	String description;
 	String category;
+	Boolean done;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -59,5 +60,13 @@ public class TodoItem {
 
 	public void setCategory( String category ) {
 		this.category = category;
+	}
+
+	public Boolean getDone() {
+		return done;
+	}
+
+	public void setDone(Boolean done) {
+		this.done = done;
 	}
 }

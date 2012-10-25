@@ -11,34 +11,36 @@
 
         <s:form action="todo-add" namespace="/" theme="bootstrap" cssClass="form-inline" label="New TODO ...">
             <div class="input-append">
-                <s:textfield name="name" label="ToDo" tooltip="Name of the Tooltip" theme="simple"/>
-                <s:submit cssClass="btn btn-primary" value="Add" cssStyle="height: 30px;"/>
+                <s:textfield name="topic" label="TODO" tooltip="TODO Topic" theme="simple"/>
+                <s:submit cssClass="btn btn-primary btn-large" value="Add"/>
             </div>
         </s:form>
     </div>
     <div class="span8">
         <ul class="nav nav-list todo-list">
-            <li>
-                <span>Todo 1</span>
-                <span class="actions pull-right">
-                    <a href="#"><i class="icon-ok"></i></a>
-                    <a href="#"><i class="icon-trash"></i></a>
-                </span>
-            </li>
-            <li>
-                <span>Todo 2</span>
-                <span class="actions pull-right">
-                    <a href="#"><i class="icon-ok"></i></a>
-                    <a href="#"><i class="icon-trash"></i></a>
-                </span>
-            </li>
-            <li>
-                <span class="solved">Todo Solved</span>
-                <span class="actions pull-right">
-                    <a href="#"><i class="icon-ok"></i></a>
-                    <a href="#"><i class="icon-trash"></i></a>
-                </span>
-            </li>
+	        <s:iterator value="items">
+		        <li>
+			        <s:if test="done">
+				        <span class="todo-done"><s:property value="topic"/></span>
+			        </s:if>
+			        <s:else>
+				        <span><s:property value="topic"/></span>
+			        </s:else>
+						<span class="actions pull-right">
+			                <s:if test="!done">
+					            <s:url var="doneurl" action="todo-done" namespace="/">
+						            <s:param name="id" value="%{id}"/>
+					            </s:url>
+					            <s:a href="%{doneurl}"><i class="icon-ok"></i></s:a>
+			                </s:if>
+
+							<s:url var="deleteurl" action="todo-delete" namespace="/">
+								<s:param name="id" value="%{id}"/>
+							</s:url>
+							<s:a href="%{deleteurl}"><i class="icon-trash"></i></s:a>
+						</span>
+		        </li>
+	        </s:iterator>
         </ul>
     </div>
 </div>

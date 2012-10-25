@@ -21,7 +21,7 @@ body {
 	background-color: #0088CC;
 	color: #fff
 }
-.solved {
+.todo-done {
 	text-decoration: line-through;
 	color: #666;
 }
