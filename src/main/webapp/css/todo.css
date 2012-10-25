@@ -1,0 +1,73 @@
+body {
+    padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+
+.clickable tr:hover {
+    background-color: #cccccc;
+    cursor: pointer;
+}
+
+.label {
+    font-weight: normal;
+    color: #333;
+    font-size: 13px;
+    background-color: transparent;
+    text-shadow: 0 0px;
+    text-decoration:none;
+}
+.label:hover {
+    color:#333;
+    text-decoration:none;
+}
+
+.buchungen {
+}
+
+.togglebutton {
+}
+
+.tooltipEnabled {
+}
+
+td.editPosten {
+}
+
+td.noEdit {
+}
+
+td.right {
+    text-align: right;
+    width: 15%
+}
+
+.konto {
+    padding-bottom: 30px;
+}
+
+.berechnet {
+    background-color: #90ee90;
+}
+
+.teilberechnet {
+    background-color: #aaffaa;
+}
+
+.unberechnet {
+    background-color: #db6e00;
+}
+
+.nurmanuell {
+    background-color: #ff8c00;
+}
+
+.manuell {
+    background-color: #fff400;
+}
+
+.immerberechnet {
+    background-color: #87cefa;
+}
+
+.berechnetkorrigiert {
+    background-color: #c834e2;
+}

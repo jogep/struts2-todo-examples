@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.custom.i18n.resources" value="global"/>
+    <constant name="struts.i18n.reload" value="true"/>
+    <constant name="struts.convention.classes.reload" value="true" />
+    <constant name="struts.convention.exclude.parentClassLoader" value="false" />
+    <constant name="struts.convention.default.parent.package" value="todo" />
+    <constant name="struts.action.extension" value=",,action"/>
+    <constant name="struts.locale" value="de_DE"/>
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+
+    <package name="todo" extends="json-default">
+        <interceptors>
+            <interceptor name="transaction" class="eu.strutters.example.todo.interceptor.TransactionalInterceptor"/>
+
+            <interceptor-stack name="strippedStack">
+                <interceptor-ref name="exception"/>
+                <interceptor-ref name="transaction"/>
+<!--
+                <interceptor-ref name="alias"/>
+-->
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="prepare"/>
+<!--
+                <interceptor-ref name="chain"/>
+-->
+                <interceptor-ref name="scopedModelDriven"/>
+                <interceptor-ref name="modelDriven"/>
+                <interceptor-ref name="fileUpload"/>
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="multiselect"/>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="actionMappingParams"/>
+                <interceptor-ref name="params">
+                    <param name="excludeParams">dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="debugging"/>
+            </interceptor-stack>
+
+            <interceptor-stack name="pppStack">
+                <interceptor-ref name="exception"/>
+                <interceptor-ref name="transaction"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="multiselect"/>
+                <interceptor-ref name="params">
+                    <param name="excludeParams">dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*</param>
+                </interceptor-ref>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="modelDriven"/>
+                <interceptor-ref name="fileUpload"/>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="actionMappingParams"/>
+                <interceptor-ref name="params">
+                    <param name="excludeParams">dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <default-interceptor-ref name="strippedStack"/>
+    </package>
+
+</struts>
