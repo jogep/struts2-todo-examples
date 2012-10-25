@@ -1,6 +1,7 @@
 package eu.strutters.example.todo.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * TodoItem.
@@ -11,6 +12,7 @@ import javax.persistence.*;
 public class TodoItem {
 
 	Integer id;
+	Date dueDate;
 	String topic;
 	String description;
 	String category;
@@ -27,6 +29,15 @@ public class TodoItem {
 
 	public String getTopic() {
 		return topic;
+	}
+
+	@Temporal(TemporalType.DATE)
+	public Date getDueDate() {
+		return dueDate;
+	}
+
+	public void setDueDate( Date dueDate ) {
+		this.dueDate = dueDate;
 	}
 
 	public void setTopic( String topic ) {
