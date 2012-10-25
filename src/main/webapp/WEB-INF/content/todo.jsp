@@ -12,7 +12,7 @@
         <s:form action="todo-add" namespace="/" theme="bootstrap" cssClass="form-inline" label="New TODO ...">
             <div class="input-append">
                 <s:textfield name="topic" label="TODO" tooltip="TODO Topic" theme="simple"/>
-                <s:submit cssClass="btn btn-primary btn-large" value="Add"/>
+                <s:submit cssClass="btn btn-primary" cssStyle="height: 30px" value="Add"/>
             </div>
         </s:form>
     </div>
