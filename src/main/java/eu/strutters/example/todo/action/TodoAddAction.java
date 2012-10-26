@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-@Result(name = Action.SUCCESS, type = "redirect", location = "todo")
+@Result(name = Action.SUCCESS, type = "redirect", location = "todo-list")
 public class TodoAddAction extends ActionSupport {
 
 	private String topic;

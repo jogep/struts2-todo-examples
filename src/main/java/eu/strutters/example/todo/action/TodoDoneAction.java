@@ -6,7 +6,7 @@ import eu.strutters.example.todo.service.TodoItemService;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Result(name = Action.SUCCESS, type = "redirect", location = "todo")
+@Result(name = Action.SUCCESS, type = "redirect", location = "todo-list")
 public class TodoDoneAction implements Action {
 
 	private int id;

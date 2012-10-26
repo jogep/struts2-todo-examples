@@ -19,7 +19,7 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link href='<s:url namespace="/struts/bootstrap/css/" action="bootstrap-responsive.css"/>' rel="stylesheet">
-    <sj:head jqueryui="true" locale="de"/>
+    <sj:head jqueryui="true" locale="de" defaultIndicator="indicator"/>
     <sb:head />
     <link rel="stylesheet" href='<s:url namespace="/css" action="todo.css"/>' type="text/css"/>
     <decorator:head/>
@@ -48,6 +48,10 @@
                     </li>
                 </ul>
             </div>
+	        <div class="pull-right" style="margin-top: 10px">
+		        <img id="indicator" src="img/indicator.gif" style="display: none;"/>
+	        </div>
+
             <!-- /.nav-collapse -->
         </div>
     </div>

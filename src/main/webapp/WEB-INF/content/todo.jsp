@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 <html>
 <head><title>Manage Your TODOs</title></head>
 <body>
@@ -9,40 +10,19 @@
 
         <s:fielderror theme="bootstrap"/>
 
-        <s:form action="todo-add" namespace="/" theme="bootstrap" cssClass="form-inline" label="New TODO ...">
+        <s:form id="todoAddForm" action="todo-add" namespace="/" theme="bootstrap" cssClass="form-inline" label="New TODO ...">
+	        <s:hidden name="nodoc" value="true" />
             <div class="input-append">
                 <s:textfield name="topic" label="TODO" tooltip="TODO Topic" theme="simple"/>
-                <s:submit cssClass="btn btn-primary" cssStyle="height: 30px" value="Add"/>
+                <sj:submit cssClass="btn btn-primary" cssStyle="height: 30px" value="Add" formIds="todoAddForm" targets="todoListContent"/>
             </div>
         </s:form>
     </div>
-    <div class="span8">
-        <ul class="nav nav-list todo-list">
-	        <s:iterator value="items">
-		        <li>
-			        <s:if test="done">
-				        <span class="todo-done"><s:property value="topic"/></span>
-			        </s:if>
-			        <s:else>
-				        <span><s:property value="topic"/></span>
-			        </s:else>
-						<span class="actions pull-right">
-			                <s:if test="!done">
-					            <s:url var="doneurl" action="todo-done" namespace="/">
-						            <s:param name="id" value="%{id}"/>
-					            </s:url>
-					            <s:a href="%{doneurl}"><i class="icon-ok"></i></s:a>
-			                </s:if>
-
-							<s:url var="deleteurl" action="todo-delete" namespace="/">
-								<s:param name="id" value="%{id}"/>
-							</s:url>
-							<s:a href="%{deleteurl}"><i class="icon-trash"></i></s:a>
-						</span>
-		        </li>
-	        </s:iterator>
-        </ul>
-    </div>
+	<s:url var="listurl" action="todo-list" namespace="/" >
+	   <s:param name="nodoc" value="true" />
+	</s:url>
+	<sj:div id="todoListContent" cssClass="span8" href="%{listurl}">
+    </sj:div>
 </div>
 
 </body>
