@@ -18,11 +18,11 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link href='<s:url namespace="/struts/bootstrap/css/" action="bootstrap-responsive.css"/>' rel="stylesheet">
     <sj:head jqueryui="true" locale="de" defaultIndicator="indicator"/>
-    <sb:head />
+	<sb:head includeStylesResponsive="true"/>
     <link rel="stylesheet" href='<s:url namespace="/css" action="todo.css"/>' type="text/css"/>
-    <decorator:head/>
+	<script src="<s:url value="/js/todo.js" />"></script>
+	<decorator:head/>
 </head>
 <body>
 </s:if>
@@ -49,36 +49,31 @@
                 </ul>
             </div>
 	        <div class="pull-right" style="margin-top: 10px">
-		        <img id="indicator" src="img/indicator.gif" style="display: none;"/>
+		        <img id="indicator" src="<s:url value="/img/indicator.gif" />" style="display: none;"/>
 	        </div>
 
             <!-- /.nav-collapse -->
         </div>
     </div>
 </div>
-</s:if>
 <div class="container-fluid">
     <div class="row-fluid">
         <div id="content" class="span12 page-header">
             <h1><decorator:title default="What's Up?"/></h1>
-            <decorator:body/>
-        </div>
-    </div>
+</s:if>
+
+				<decorator:body/>
 
 <s:if test="#attr['decorate']">
+		</div>
+    </div>
+
     <footer class="footer">
         <p class="pull-right"><a href="http://strutters.eu">Strutters we are...</a></p>
     </footer>
-</s:if>
 </div>
 <!-- /container -->
 
-<s:if test="#attr['decorate']">
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".collapse").collapse();
-    });
-</script>
 </s:if>
 <s:if test="#attr['renderDoc']">
 </body>
