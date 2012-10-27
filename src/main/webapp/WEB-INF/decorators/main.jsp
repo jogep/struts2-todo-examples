@@ -18,7 +18,7 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <sj:head jqueryui="true" locale="de" defaultIndicator="indicator"/>
+    <sj:head jqueryui="true" locale="de" loadAtOnce="true" defaultIndicator="indicator"/>
 	<sb:head includeStylesResponsive="true"/>
     <link rel="stylesheet" href='<s:url namespace="/css" action="todo.css"/>' type="text/css"/>
 	<script src="<s:url value="/js/todo.js" />"></script>

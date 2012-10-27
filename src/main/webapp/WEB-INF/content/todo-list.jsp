@@ -3,7 +3,7 @@
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 <ul class="nav nav-list todo-list">
 	        <s:iterator value="items">
-		        <li>
+		        <li id="todoItem${id}">
 			        <s:if test="done">
 				        <span id="todoTopic${id}" class="todo-done"><s:property value="topic"/></span>
 			        </s:if>
@@ -22,7 +22,7 @@
 								<s:param name="id" value="%{id}"/>
 								<s:param name="nodoc" value="true" />
 							</s:url>
-							<sj:a href="%{deleteurl}" targets="todoListContent"><i class="icon-trash"></i></sj:a>
+							<sj:a href="%{deleteurl}" dataType="json" onSuccessTopics="/todo/remove"><i class="icon-trash"></i></sj:a>
 						</span>
 		        </li>
 	        </s:iterator>
