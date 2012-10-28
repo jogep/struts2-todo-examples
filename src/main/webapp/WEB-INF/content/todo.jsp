@@ -11,7 +11,6 @@
         <s:fielderror theme="bootstrap"/>
 
         <s:form id="todoAddForm" action="todo-save" namespace="/" theme="bootstrap" cssClass="form-inline" label="New TODO ...">
-	        <s:hidden name="nodoc" value="true" />
             <div class="input-append">
                 <s:textfield name="topic" label="TODO" tooltip="TODO Topic" theme="simple"/>
                 <sj:submit
@@ -27,9 +26,7 @@
             </div>
         </s:form>
     </div>
-	<s:url var="listurl" action="todo-list" namespace="/" >
-	   <s:param name="nodoc" value="true" />
-	</s:url>
+	<s:url var="listurl" action="todo-list" namespace="/" />
 	<sj:div id="todoListContent" cssClass="span8" href="%{listurl}">
     </sj:div>
 </div>

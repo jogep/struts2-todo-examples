@@ -33,13 +33,11 @@
 
 							<s:url var="editurl" action="todo-edit" namespace="/" escapeAmp="false">
 								<s:param name="id" value="%{id}"/>
-								<s:param name="nodoc" value="true" />
 							</s:url>
 							<sj:a id="todoEditLink%{id}" href="%{editurl}" openDialog="todoDialog" openDialogTitle="Edit %{topic}"><i class="icon-pencil"></i></sj:a>
 
 							<s:url var="deleteurl" action="todo-delete" namespace="/" escapeAmp="false">
 								<s:param name="id" value="%{id}"/>
-								<s:param name="nodoc" value="true" />
 							</s:url>
 							<sj:a id="todoRemoveLink%{id}" href="%{deleteurl}" dataType="json" onSuccessTopics="/todo/remove"><i class="icon-trash"></i></sj:a>
 						</span>
