@@ -41,11 +41,6 @@
             <version>1.1</version>
         </dependency>
         <dependency>
-            <groupId>postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>9.0-801.jdbc4</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
             <version>${spring.version}</version>
@@ -122,11 +117,6 @@
             <version>${struts2.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.struts</groupId>
-            <artifactId>struts2-config-browser-plugin</artifactId>
-            <version>${struts2.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.jgeppert.struts2.bootstrap</groupId>
             <artifactId>struts2-bootstrap-plugin</artifactId>
             <version>${struts2-bootstrap.version}</version>
@@ -138,36 +128,9 @@
         </dependency>
         <dependency>
             <groupId>com.jgeppert.struts2.jquery</groupId>
-            <artifactId>struts2-jquery-grid-plugin</artifactId>
-            <version>${struts2-jquery.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.jgeppert.struts2.jquery</groupId>
             <artifactId>struts2-jquery-richtext-plugin</artifactId>
             <version>${struts2-jquery.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.jgeppert.struts2.jquery</groupId>
-            <artifactId>struts2-jquery-tree-plugin</artifactId>
-            <version>${struts2-jquery.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.jgeppert.struts2.jquery</groupId>
-            <artifactId>struts2-jquery-mobile-plugin</artifactId>
-            <version>${struts2-jquery.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>13.0</version>
-        </dependency>
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>2.1</version>
-        </dependency>
-
 
         <dependency>
             <groupId>log4j</groupId>
