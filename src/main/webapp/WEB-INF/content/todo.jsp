@@ -34,6 +34,6 @@
     </sj:div>
 </div>
 
-<sj:dialog id="todoDialog" modal="true" title="TODO Dialog" autoOpen="false" width="800" height="600" closeTopics="/todo/dialog/close" />
+<sj:dialog id="todoDialog" modal="true" title="TODO Dialog" autoOpen="false" width="900" height="680" closeTopics="/todo/dialog/close" />
 </body>
 </html>
