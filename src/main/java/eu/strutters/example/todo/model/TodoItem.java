@@ -24,7 +24,7 @@ public class TodoItem {
 		return id;
 	}
 
-	public void setId( Integer id ) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -37,11 +37,11 @@ public class TodoItem {
 		return dueDate;
 	}
 
-	public void setDueDate( Date dueDate ) {
+	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
 
-	public void setTopic( String topic ) {
+	public void setTopic(String topic) {
 		this.topic = topic;
 	}
 
@@ -50,7 +50,7 @@ public class TodoItem {
 		return description;
 	}
 
-	public void setDescription( String description ) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
@@ -58,7 +58,7 @@ public class TodoItem {
 		return category;
 	}
 
-	public void setCategory( String category ) {
+	public void setCategory(String category) {
 		this.category = category;
 	}
 

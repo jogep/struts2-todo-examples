@@ -17,45 +17,45 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
  */
 public class TransactionalInterceptor extends MethodFilterInterceptor {
 
-    private static final Logger LOG = LoggerFactory.getLogger(TransactionalInterceptor.class);
+	private static final Logger LOG = LoggerFactory.getLogger(TransactionalInterceptor.class);
 
-    PlatformTransactionManager transactionManager;
+	PlatformTransactionManager transactionManager;
 
-    public void setTransactionManager( PlatformTransactionManager transactionManager ) {
-        this.transactionManager = transactionManager;
-    }
+	public void setTransactionManager(PlatformTransactionManager transactionManager) {
+		this.transactionManager = transactionManager;
+	}
 
-    protected String doIntercept( ActionInvocation actionInvocation ) throws Exception {
-        if (transactionManager != null) {
+	protected String doIntercept(ActionInvocation actionInvocation) throws Exception {
+		if (transactionManager != null) {
 
-            TransactionStatus status = createTransactionContext();
+			TransactionStatus status = createTransactionContext();
 
-            try {
-                // Invoke Action
-                String result = actionInvocation.invoke();
+			try {
+				// Invoke Action
+				String result = actionInvocation.invoke();
 
 				conditionallyMarkForRollback(status, result);
 
 				endTransaction(status);
 				return result;
 
-            } catch ( Exception e ) {
+			} catch (Exception e) {
 				return rollbackAndThrow(status, e);
 
 
 			}
-        } else {
+		} else {
 
-            // Transaction manager was not configured, proceed without transaction context
-            if (LOG.isInfoEnabled()) {
-            	LOG.info("[doIntercept]: No TransactionManager found, proceeding without setting up transactional context.");
-            }
-            return actionInvocation.invoke();
-        }
-    }
+			// Transaction manager was not configured, proceed without transaction context
+			if (LOG.isInfoEnabled()) {
+				LOG.info("[doIntercept]: No TransactionManager found, proceeding without setting up transactional context.");
+			}
+			return actionInvocation.invoke();
+		}
+	}
 
-	private void conditionallyMarkForRollback( TransactionStatus status, String result ) {
-		if (Action.INPUT.equals(result)|| Action.ERROR.equals(result)) {
+	private void conditionallyMarkForRollback(TransactionStatus status, String result) {
+		if (Action.INPUT.equals(result) || Action.ERROR.equals(result)) {
 			// Special treatment of INPUT/ERROR result, forcing rollback
 			status.setRollbackOnly();
 
@@ -65,7 +65,7 @@ public class TransactionalInterceptor extends MethodFilterInterceptor {
 		}
 	}
 
-	private void endTransaction( TransactionStatus status ) {
+	private void endTransaction(TransactionStatus status) {
 		if (!status.isCompleted()) {
 			// Life's good, lets's commit
 			transactionManager.commit(status);
@@ -82,7 +82,8 @@ public class TransactionalInterceptor extends MethodFilterInterceptor {
 	}
 
 	private TransactionStatus createTransactionContext() {
-		TransactionStatus status;DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+		TransactionStatus status;
+		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
 		def.setName("TransactionalInterceptor@" + def.hashCode());
 		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
 
@@ -94,7 +95,7 @@ public class TransactionalInterceptor extends MethodFilterInterceptor {
 		return status;
 	}
 
-	private String rollbackAndThrow( TransactionStatus status, Exception e ) throws Exception {
+	private String rollbackAndThrow(TransactionStatus status, Exception e) throws Exception {
 		// Bad things happened - an Exception popping up here is should force a rollback
 		if (!status.isCompleted()) {
 

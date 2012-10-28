@@ -12,7 +12,7 @@
 			        </s:else>
 			        <s:if test="description != null">
 				        <span id="todoTopicDescription${id}" class="todo-description">
-					        <i class="icon-comment"></i>
+					        <i class="icon-info-sign"></i>
 				            <span id="todoTopicDescriptionContent${id}" class="todo-description-content">
 						       <s:property value="description" escapeHtml="false" />
 				            </span>
@@ -20,7 +20,7 @@
 			        </s:if>
 			        <s:if test="category != null">
 				        <span id="todoTopicCategory${id}" class="todo-category badge badge-info">
-						       <s:property value="category" />
+						      <i class="icon-tag"></i> <s:property value="category" />
 				        </span>
 			        </s:if>
 						<span class="actions pull-right">

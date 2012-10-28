@@ -10,11 +10,20 @@
 
         <s:fielderror theme="bootstrap"/>
 
-        <s:form id="todoAddForm" action="todo-add" namespace="/" theme="bootstrap" cssClass="form-inline" label="New TODO ...">
+        <s:form id="todoAddForm" action="todo-save" namespace="/" theme="bootstrap" cssClass="form-inline" label="New TODO ...">
 	        <s:hidden name="nodoc" value="true" />
             <div class="input-append">
                 <s:textfield name="topic" label="TODO" tooltip="TODO Topic" theme="simple"/>
-                <sj:submit cssClass="btn btn-primary" cssStyle="height: 30px" value="Add" formIds="todoAddForm" targets="todoListContent" clearForm="true"/>
+                <sj:submit
+		                cssClass="btn btn-primary"
+		                cssStyle="height: 30px"
+		                value="Add"
+		                formIds="todoAddForm"
+		                targets="todoListContent"
+		                clearForm="true"
+		                validate="true"
+		                validateFunction="bootstrapValidation"
+		        />
             </div>
         </s:form>
     </div>
