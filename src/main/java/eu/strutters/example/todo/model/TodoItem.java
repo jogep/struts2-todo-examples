@@ -11,12 +11,12 @@ import java.util.Date;
 @Entity
 public class TodoItem {
 
-	Integer id;
-	Date dueDate;
-	String topic;
-	String description;
-	String category;
-	Boolean done;
+	private Integer id;
+	private Date dueDate;
+	private String topic;
+	private String description;
+	private String category;
+	private boolean done;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -62,11 +62,11 @@ public class TodoItem {
 		this.category = category;
 	}
 
-	public Boolean isDone() {
+	public boolean isDone() {
 		return done;
 	}
 
-	public void setDone(Boolean done) {
+	public void setDone(boolean done) {
 		this.done = done;
 	}
 }
