@@ -9,6 +9,7 @@ import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.inject.Inject;
 import java.util.Date;
 
 @Result(name = Action.SUCCESS, type = "redirect", location = "todo-list")
@@ -21,7 +22,7 @@ public class TodoSaveAction extends ActionSupport {
 	private String description;
 	private String category;
 
-	@Autowired
+	@Inject
 	private TodoItemService todoItemService;
 
 	public String execute() throws Exception {

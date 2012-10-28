@@ -6,13 +6,15 @@ import eu.strutters.example.todo.service.TodoItemService;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.inject.Inject;
+
 @Result(type = "json")
 public class TodoDeleteAction implements Action {
 
 	private int id;
 	private TodoItem item;
 
-	@Autowired
+	@Inject
 	private TodoItemService todoItemService;
 
 	public String execute() throws Exception {

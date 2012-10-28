@@ -5,6 +5,7 @@ import eu.strutters.example.todo.service.TodoItemService;
 import org.apache.struts2.interceptor.ParameterAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.inject.Inject;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +14,7 @@ public class TodoListAction implements ParameterAware {
 	private List<TodoItem> items;
 	private Map<String, String[]> parameters;
 
-	@Autowired
+	@Inject
 	private TodoItemService todoItemService;
 
 

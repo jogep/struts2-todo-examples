@@ -5,12 +5,14 @@ import eu.strutters.example.todo.model.TodoItem;
 import eu.strutters.example.todo.service.TodoItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.inject.Inject;
+
 public class TodoEditAction {
 
 	private int id;
 	private TodoItem item;
 
-	@Autowired
+	@Inject
 	private TodoItemService todoItemService;
 
 	public String execute() throws Exception {
