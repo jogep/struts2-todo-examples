@@ -5,9 +5,13 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 <%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
-<s:set var="renderDoc" scope="request" value="#parameters['nodoc']==null" />
-<s:set var="decorate" scope="request" value="(#parameters['nodec']==null)&&(#parameters['nodoc']==null)" />
-<s:if test="#attr['renderDoc']">
+<%
+	String xReq = request.getHeader("X-Requested-With");
+	if(xReq == null) {
+		request.setAttribute("decorate", "true");
+	}
+%>
+<s:if test="#attr['decorate']">
 <html>
 <head>
     <title>
@@ -25,10 +29,8 @@
 	<decorator:head/>
 </head>
 <body>
-</s:if>
-<s:if test="#attr['decorate']">
 <div class="navbar navbar-fixed-top">
-    <s:url namespace="/" action="index" var="homeUrl">
+    <s:url namespace="/" action="todo" var="homeUrl">
         <s:param name="request_locale" value="'de'"/>
     </s:url>
     <div class="navbar-inner">
@@ -74,8 +76,6 @@
 </div>
 <!-- /container -->
 
-</s:if>
-<s:if test="#attr['renderDoc']">
 </body>
 </html>
 </s:if>
