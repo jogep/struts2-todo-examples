@@ -76,4 +76,11 @@ public class TodoItemServiceTest {
 		assertNull(item.getDueDate());
 		assertTrue(item.isDone());
 	}
+
+	@Test
+	public void testCategoriesQuery() throws Exception {
+		List<String> list = todoItemService.findCategories();
+		assertNotNull(list);
+		assertTrue(list.size() > 1);
+	}
 }
