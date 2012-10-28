@@ -25,3 +25,9 @@ body {
 	text-decoration: line-through;
 	color: #666;
 }
+.todo-due-date{
+	margin-right: 20px;
+}
+.todo-description-content {
+	display: none;
+}

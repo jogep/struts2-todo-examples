@@ -10,6 +10,19 @@
 			        <s:else>
 				        <span id="todoTopic${id}"><s:property value="topic"/></span>
 			        </s:else>
+			        <s:if test="description != null">
+				        <span id="todoTopicDescription${id}" class="todo-description">
+					        <i class="icon-comment"></i>
+				            <span id="todoTopicDescriptionContent${id}" class="todo-description-content">
+						       <s:property value="description" escapeHtml="false" />
+				            </span>
+				        </span>
+			        </s:if>
+			        <s:if test="category != null">
+				        <span id="todoTopicCategory${id}" class="todo-category badge badge-info">
+						       <s:property value="category" />
+				        </span>
+			        </s:if>
 						<span class="actions pull-right">
 			                <s:if test="!done">
 					            <s:url var="doneurl" action="todo-done" namespace="/">
@@ -30,6 +43,17 @@
 							</s:url>
 							<sj:a id="todoRemoveLink%{id}" href="%{deleteurl}" dataType="json" onSuccessTopics="/todo/remove"><i class="icon-trash"></i></sj:a>
 						</span>
+			        <s:if test="dueDate != null">
+				        <span id="todoTopicDate${id}" class="todo-due-date pull-right"><sub><s:date name="dueDate" format="dd.MM.yyyy"/></sub></span>
+			        </s:if>
 		        </li>
 	        </s:iterator>
         </ul>
+ <script type="text/javascript">
+	    $(".todo-description").popover({
+		    html:true,
+		    title: "Description",
+		    trigger: "hover",
+		    content : function(){return $(this).find(".todo-description-content").html() }
+	    });
+ </script>
