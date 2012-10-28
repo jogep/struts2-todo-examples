@@ -62,7 +62,7 @@ public class TodoItem {
 		this.category = category;
 	}
 
-	public Boolean getDone() {
+	public Boolean isDone() {
 		return done;
 	}
 
