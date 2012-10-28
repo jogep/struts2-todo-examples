@@ -79,8 +79,8 @@ public class TodoItemServiceTest {
 
 	@Test
 	public void testCategoriesQuery() throws Exception {
-		List<String> list = todoItemService.findCategories();
+		List<String> list = todoItemService.findCategories("T");
 		assertNotNull(list);
-		assertTrue(list.size() > 1);
+		assertTrue(list.size() > 0);
 	}
 }

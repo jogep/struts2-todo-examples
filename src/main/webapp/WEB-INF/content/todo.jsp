@@ -14,7 +14,7 @@
 	        <s:hidden name="nodoc" value="true" />
             <div class="input-append">
                 <s:textfield name="topic" label="TODO" tooltip="TODO Topic" theme="simple"/>
-                <sj:submit cssClass="btn btn-primary" cssStyle="height: 30px" value="Add" formIds="todoAddForm" targets="todoListContent"/>
+                <sj:submit cssClass="btn btn-primary" cssStyle="height: 30px" value="Add" formIds="todoAddForm" targets="todoListContent" clearForm="true"/>
             </div>
         </s:form>
     </div>
@@ -25,5 +25,6 @@
     </sj:div>
 </div>
 
+<sj:dialog id="todoDialog" modal="true" title="TODO Dialog" autoOpen="false" width="800" height="600" closeTopics="/todo/dialog/close" />
 </body>
 </html>

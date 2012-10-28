@@ -19,8 +19,9 @@ public class TodoItemService extends GenericEntityService<TodoItem, Integer> {
 		return TodoItem.class;
 	}
 
-	public List<String> findCategories(){
-		Query query = getCurrentSession().createQuery("select distinct todo.category from TodoItem as todo");
+	public List<String> findCategories(String term){
+		Query query = getCurrentSession().createQuery("select distinct todo.category from TodoItem as todo where lower(todo.category) like :term");
+		query.setString("term", "%"+term.toLowerCase()+"%");
 		return (List<String>) query.list();
 	}
 }

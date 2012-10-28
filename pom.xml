@@ -122,6 +122,11 @@
             <version>${struts2.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-config-browser-plugin</artifactId>
+            <version>${struts2.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.jgeppert.struts2.bootstrap</groupId>
             <artifactId>struts2-bootstrap-plugin</artifactId>
             <version>${struts2-bootstrap.version}</version>
@@ -225,7 +230,7 @@
                             <value>false</value>
                         </systemProperty>
                     </systemProperties>
-                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <scanIntervalSeconds>0</scanIntervalSeconds>
                     <webAppSourceDirectory>${basedir}/src/main/webapp/</webAppSourceDirectory>
                     <webAppConfig>
                         <contextPath>/todo</contextPath>
