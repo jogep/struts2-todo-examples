@@ -8,7 +8,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.inject.Inject;
-
 import java.util.Date;
 import java.util.List;
 
@@ -23,42 +22,45 @@ import static org.junit.Assert.*;
 @ContextConfiguration({"/spring-model.xml"})
 public class TodoItemServiceTest {
 
-	@Inject TodoItemService todoItemService;
+	@Inject
+	TodoItemService todoItemService;
 
-	private int id1 = 0;
-	private int id2 = 0;
+	private static int id1 = 0;
+	private static int id2 = 0;
 
-	@Before()
-	public void setup() {
-		TodoItem item1 = new TodoItem();
-		item1.setTopic("Todo Entry One");
-		item1.setCategory("One");
-		item1.setDone(false);
-		item1.setDueDate(new Date());
+	@Before
+	public void setUp() {
+		if (id1 == 0) {
+			TodoItem item1 = new TodoItem();
+			item1.setTopic("Todo Entry One");
+			item1.setCategory("One");
+			item1.setDone(false);
+			item1.setDueDate(new Date());
 
-		todoItemService.save(item1);
-		id1 = item1.getId();
+			todoItemService.save(item1);
+			id1 = item1.getId();
 
-		TodoItem item2 = new TodoItem();
-		item2.setTopic("Todo Entry Two");
-		item2.setId(2);
-		item2.setCategory("Two");
-		item2.setDone(true);
+			TodoItem item2 = new TodoItem();
+			item2.setTopic("Todo Entry Two");
+			item2.setId(2);
+			item2.setCategory("Two");
+			item2.setDone(true);
 
-		todoItemService.save(item2);
-		id2 = item2.getId();
+			todoItemService.save(item2);
+			id2 = item2.getId();
+		}
 	}
 
 	@Test
 	public void testServiceGetsInjected() throws Exception {
-	    assertNotNull(todoItemService);
+		assertNotNull(todoItemService);
 	}
 
 	@Test
 	public void testFindAll() throws Exception {
 		List<TodoItem> list = todoItemService.findAll();
 		assertNotNull(list);
-		assertTrue(list.size() > 1);
+		assertTrue(list.size() == 2);
 	}
 
 	@Test
@@ -81,6 +83,6 @@ public class TodoItemServiceTest {
 	public void testCategoriesQuery() throws Exception {
 		List<String> list = todoItemService.findCategories("T");
 		assertNotNull(list);
-		assertTrue(list.size() > 0);
+		assertTrue(list.size() == 1);
 	}
 }
