@@ -12,7 +12,7 @@
     <context:component-scan base-package="eu.strutters.example.todo.service"/>
 
     <!-- Spring-Hibernate Session Factory -->
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan" value="eu.strutters.example.todo.model" />
         <property name="hibernateProperties">
@@ -31,7 +31,7 @@
         <property name="password" value=""/>
     </bean>
 
-    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
         <property name="dataSource" ref="dataSource"/>
     </bean>
