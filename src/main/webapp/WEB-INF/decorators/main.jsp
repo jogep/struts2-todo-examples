@@ -42,10 +42,11 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">What's up <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li class="nav-header">View</li>
-                            <li><a href="<s:url namespace="/foo/bar" action="list"/>">My TODOs</a></li>
+                            <li><a href="<s:url namespace="/" action="todo"/>">My TODOs</a></li>
                             <li class="divider"></li>
                             <li class="nav-header">Manage</li>
-                            <li><a href="<s:url namespace="/foo/bar" action="create"/>">New TODO ...</a></li>
+	                        <s:url var="newtodourl" namespace="/" action="todo-edit"/>
+                            <li><sj:a id="newTodoLink" href="%{newtodourl}" openDialog="todoDialog" openDialogTitle="New TODO ...">New TODO ...</sj:a></li>
                         </ul>
                     </li>
                 </ul>

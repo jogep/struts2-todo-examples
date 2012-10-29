@@ -27,19 +27,22 @@ public class TodoSaveAction extends ActionSupport {
 
 	public String execute() throws Exception {
 
+		TodoItem item;
 		if (id != null) {
-			TodoItem item = todoItemService.get(id);
-			item.setDueDate(dueDate);
-			item.setCategory(category);
-			item.setDescription(description);
-			item.setTopic(topic);
+			item = todoItemService.get(id);
+		} else {
+			item = new TodoItem();
+			item.setDone(false);
+		}
 
+		item.setDueDate(dueDate);
+		item.setCategory(category);
+		item.setDescription(description);
+		item.setTopic(topic);
+
+		if (id != null) {
 			todoItemService.merge(item);
 		} else {
-			TodoItem item = new TodoItem();
-			item.setTopic(topic);
-			item.setDone(false);
-
 			todoItemService.save(item);
 		}
 
