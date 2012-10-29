@@ -14,6 +14,7 @@
     </scm>
 
     <properties>
+        <targetJdk>1.6</targetJdk>
         <hibernate.version>4.1.7.Final</hibernate.version>
         <spring.version>3.1.2.RELEASE</spring.version>
         <struts2.version>2.3.4.1</struts2.version>
@@ -75,25 +76,6 @@
             <artifactId>cglib</artifactId>
             <version>2.2.2</version>
             <scope>runtime</scope>
-        </dependency>
-
-
-
-        <!-- Spring Security -->
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-web</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-taglibs</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
-            <version>${spring.version}</version>
         </dependency>
 
         <!-- Struts 2 -->
@@ -190,6 +172,13 @@
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${targetJdk}</source>
+                    <target>${targetJdk}</target>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
