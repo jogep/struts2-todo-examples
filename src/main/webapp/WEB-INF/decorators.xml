@@ -1,5 +1,11 @@
 <decorators defaultdir="/WEB-INF/decorators">
     <decorator name="main" page="main.jsp">
+        <excludes>
+            <pattern>*mobile*</pattern>
+        </excludes>
         <pattern>/*</pattern>
+    </decorator>
+    <decorator name="mobile" page="mobile.jsp">
+        <pattern>/mobile/*</pattern>
     </decorator>
 </decorators>
