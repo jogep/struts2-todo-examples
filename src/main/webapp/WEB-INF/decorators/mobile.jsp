@@ -23,6 +23,10 @@
 	</sjm:div>
 
 	<sjm:div role="footer">
+		<s:url namespace="/" action="todo" var="homeUrl">
+			<s:param name="request_locale" value="'de'"/>
+		</s:url>
+		<sjm:a href="%{homeUrl}" button="true" buttonIcon="home" rel="external">Web View</sjm:a>
 		<sjm:a href="http://strutters.eu" button="true" buttonIcon="star" rel="external">Strutters we are...</sjm:a>
 	</sjm:div>
 </sjm:div>
