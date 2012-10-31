@@ -19,9 +19,14 @@
 				        </span>
 			        </s:if>
 			        <s:if test="category != null">
-				        <span id="todoTopicCategory${id}" class="todo-category badge badge-info">
-						      <i class="icon-tag"></i> <s:property value="category" />
-				        </span>
+				        <s:url var="listurl" action="todo-list" namespace="/">
+					        <s:param name="category" value="category" />
+						</s:url>
+					    <span id="todoTopicCategory${id}" class="todo-category badge badge-info">
+				            <sj:a id="todoTopicCategory%{id}Link" href="%{listurl}" targets="todoListContent" cssClass="todo-category-link">
+				                <i class="icon-tag"></i> <s:property value="category" />
+				            </sj:a>
+					    </span>
 			        </s:if>
 						<span class="actions pull-right">
 			                <s:if test="!done">

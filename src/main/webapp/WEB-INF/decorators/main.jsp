@@ -72,7 +72,8 @@
     </div>
 
     <footer class="footer">
-        <p class="pull-right"><a href="http://strutters.eu">Strutters we are...</a></p>
+	    <p class="pull-left"><a href="<s:url namespace="/mobile" action="todo-list"/>">Mobile View</a></p>
+	    <p class="pull-right"><a href="http://strutters.eu">Strutters we are...</a></p>
     </footer>
 </div>
 <!-- /container -->

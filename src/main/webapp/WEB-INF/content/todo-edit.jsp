@@ -4,7 +4,7 @@
 <%@ taglib prefix="sjr" uri="/struts-jquery-richtext-tags" %>
 
 <s:form id="todoEditForm" action="todo-save" namespace="/" theme="bootstrap" cssClass="form-horizontal" label="Edit TODO %{topic}">
-	<s:hidden name="id" value="%{item.id}"/>
+	<s:hidden name="id" value="%{item.id}" theme="simple"/>
 	<s:textfield name="topic" value="%{item.topic}" label="TODO" tooltip="TODO Topic" required="true"/>
 	<sj:datepicker name="dueDate" value="%{item.dueDate}" label="Due Date" parentTheme="bootstrap" />
 

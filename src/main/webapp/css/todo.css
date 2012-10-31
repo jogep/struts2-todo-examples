@@ -31,3 +31,12 @@ body {
 .todo-description-content {
 	display: none;
 }
+.todo-category-link {
+	text-decoration: none;
+	color: #ffffff;
+}
+.todo-category-link:hover, .todo-category-link:active {
+	text-decoration: none;
+	color: #000000;
+}
+

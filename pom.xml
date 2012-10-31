@@ -125,6 +125,11 @@
             <artifactId>struts2-jquery-richtext-plugin</artifactId>
             <version>${struts2-jquery.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.jgeppert.struts2.jquery</groupId>
+            <artifactId>struts2-jquery-mobile-plugin</artifactId>
+            <version>${struts2-jquery.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>log4j</groupId>
