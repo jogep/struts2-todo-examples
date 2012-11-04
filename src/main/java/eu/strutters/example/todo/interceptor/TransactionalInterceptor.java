@@ -10,6 +10,8 @@ import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
+import javax.inject.Inject;
+
 /**
  * TransactionalInterceptor.
  *
@@ -19,11 +21,8 @@ public class TransactionalInterceptor extends MethodFilterInterceptor {
 
 	private static final Logger LOG = LoggerFactory.getLogger(TransactionalInterceptor.class);
 
-	PlatformTransactionManager transactionManager;
-
-	public void setTransactionManager(PlatformTransactionManager transactionManager) {
-		this.transactionManager = transactionManager;
-	}
+	@Inject
+	private PlatformTransactionManager transactionManager;
 
 	protected String doIntercept(ActionInvocation actionInvocation) throws Exception {
 		if (transactionManager != null) {
