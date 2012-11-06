@@ -27,33 +27,31 @@ public class TransactionalInterceptor extends MethodFilterInterceptor {
 	protected String doIntercept(ActionInvocation actionInvocation) throws Exception {
 		if (transactionManager != null) {
 
-			TransactionStatus status = createTransactionContext();
+			TransactionStatus txStatus = createTransactionContext();
 
 			try {
 				// Invoke Action
 				String result = actionInvocation.invoke();
 
-				conditionallyMarkForRollback(status, result);
+				// INPUT and ERROR result will lead to rollback
+				markForRollbackOnErrorOrInput(txStatus, result);
 
-				endTransaction(status);
+				endTransaction(txStatus);
 				return result;
 
 			} catch (Exception e) {
-				return rollbackAndThrow(status, e);
+				return rollbackAndThrow(txStatus, e);
 
 
 			}
 		} else {
 
 			// Transaction manager was not configured, proceed without transaction context
-			if (LOG.isInfoEnabled()) {
-				LOG.info("[doIntercept]: No TransactionManager found, proceeding without setting up transactional context.");
-			}
 			return actionInvocation.invoke();
 		}
 	}
 
-	private void conditionallyMarkForRollback(TransactionStatus status, String result) {
+	private void markForRollbackOnErrorOrInput( TransactionStatus status, String result ) {
 		if (Action.INPUT.equals(result) || Action.ERROR.equals(result)) {
 			// Special treatment of INPUT/ERROR result, forcing rollback
 			status.setRollbackOnly();
