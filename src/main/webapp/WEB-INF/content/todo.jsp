@@ -12,7 +12,7 @@
 
         <s:form id="todoAddForm" action="todo-save" namespace="/" theme="bootstrap" cssClass="form-inline" label="New TODO ...">
             <div class="input-append">
-                <s:textfield name="topic" label="TODO" tooltip="TODO Topic" theme="simple"/>
+                <s:textfield name="item.topic" label="TODO" tooltip="TODO Topic" theme="simple"/>
                 <sj:submit
 		                cssClass="btn btn-primary"
 		                cssStyle="height: 30px"
@@ -32,5 +32,7 @@
 </div>
 
 <sj:dialog id="todoDialog" modal="true" title="TODO Dialog" autoOpen="false" width="900" height="680" closeTopics="/todo/dialog/close" />
+
+<s:debug/>
 </body>
 </html>
