@@ -47,7 +47,10 @@
 							<sj:a id="todoRemoveLink%{id}" href="%{deleteurl}" dataType="json" onSuccessTopics="/todo/remove"><i class="icon-trash"></i></sj:a>
 						</span>
 			        <s:if test="dueDate != null">
-				        <span id="todoTopicDate${id}" class="todo-due-date pull-right"><sub><s:date name="dueDate" format="dd.MM.yyyy"/></sub></span>
+                        <s:url var="listurl" action="todo-list" namespace="/">
+                            <s:param name="dueDate"><s:date name="dueDate" format="dd.MM.yyyy"/></s:param>
+                        </s:url>
+                        <span id="todoTopicDate${id}" class="todo-due-date pull-right"><sub><sj:a id="todoTopicDate%{id}Link" href="%{listurl}" targets="todoListContent"><s:date name="dueDate" format="dd.MM.yyyy"/></sj:a></sub></span>
 			        </s:if>
 		        </li>
 	        </s:iterator>
