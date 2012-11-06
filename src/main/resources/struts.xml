@@ -5,9 +5,7 @@
 
 <struts>
 
-    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
     <constant name="struts.devMode" value="true" />
-    <constant name="struts.custom.i18n.resources" value="global"/>
     <constant name="struts.i18n.reload" value="true"/>
     <constant name="struts.convention.classes.reload" value="true" />
     <constant name="struts.convention.exclude.parentClassLoader" value="false" />
@@ -23,15 +21,9 @@
             <interceptor-stack name="strippedStack">
                 <interceptor-ref name="exception"/>
                 <interceptor-ref name="transaction"/>
-<!--
-                <interceptor-ref name="alias"/>
--->
                 <interceptor-ref name="servletConfig"/>
                 <interceptor-ref name="i18n"/>
                 <interceptor-ref name="prepare"/>
-<!--
-                <interceptor-ref name="chain"/>
--->
                 <interceptor-ref name="scopedModelDriven"/>
                 <interceptor-ref name="modelDriven"/>
                 <interceptor-ref name="fileUpload"/>
