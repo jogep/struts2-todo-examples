@@ -1,5 +1,8 @@
 package eu.strutters.example.todo.model;
 
+import org.apache.commons.lang.StringUtils;
+import org.apache.struts2.util.StrutsUtil;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -51,7 +54,7 @@ public class TodoItem {
 	}
 
 	public void setDescription(String description) {
-		this.description = description;
+		this.description = StringUtils.trimToNull(description);
 	}
 
 	public String getCategory() {
@@ -59,7 +62,7 @@ public class TodoItem {
 	}
 
 	public void setCategory(String category) {
-		this.category = category;
+		this.category = StringUtils.trimToNull(category);
 	}
 
 	public boolean isDone() {
