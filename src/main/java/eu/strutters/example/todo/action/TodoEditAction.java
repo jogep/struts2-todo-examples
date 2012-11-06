@@ -1,13 +1,14 @@
 package eu.strutters.example.todo.action;
 
 import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
 import eu.strutters.example.todo.model.TodoItem;
 import eu.strutters.example.todo.service.TodoItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.inject.Inject;
 
-public class TodoEditAction {
+public class TodoEditAction extends ActionSupport {
 
 	private int id;
 	private TodoItem item;
