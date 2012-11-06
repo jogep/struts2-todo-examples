@@ -32,6 +32,10 @@ public class TodoItem {
 		return topic;
 	}
 
+	public void setTopic(String topic) {
+		this.topic = topic;
+	}
+
 	@Temporal(TemporalType.DATE)
 	public Date getDueDate() {
 		return dueDate;
@@ -39,10 +43,6 @@ public class TodoItem {
 
 	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
-	}
-
-	public void setTopic(String topic) {
-		this.topic = topic;
 	}
 
 	@Column(length = 1024)
