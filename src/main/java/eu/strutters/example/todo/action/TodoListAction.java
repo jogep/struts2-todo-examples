@@ -1,5 +1,6 @@
 package eu.strutters.example.todo.action;
 
+import com.opensymphony.xwork2.Action;
 import eu.strutters.example.todo.model.TodoItem;
 import eu.strutters.example.todo.service.TodoItemService;
 import org.apache.struts2.interceptor.ParameterAware;
@@ -13,7 +14,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-public class TodoListAction {
+public class TodoListAction implements Action {
 
 	private List<TodoItem> items;
 	private String category;
@@ -35,7 +36,7 @@ public class TodoListAction {
 
 		items = todoItemService.list(criteria);
 
-		return "success";
+		return SUCCESS;
 	}
 
 	public void setCategory(String category) {
