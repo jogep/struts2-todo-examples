@@ -32,14 +32,7 @@ public class TodoSaveAction extends ActionSupport {
 			todoItemService.save(item);
 		}
 
-		return Action.SUCCESS;
-	}
-
-	public void validate() {
-		super.validate();
-		if (item.getTopic() == null) {
-			addFieldError("topic", "A Topic is required!");
-		}
+		return SUCCESS;
 	}
 
 }
