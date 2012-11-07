@@ -1,5 +1,6 @@
 package eu.strutters.example.todo.model;
 
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.util.StrutsUtil;
 
@@ -31,6 +32,7 @@ public class TodoItem {
 		this.id = id;
 	}
 
+	@RequiredStringValidator(message = "Topic is required!")
 	public String getTopic() {
 		return topic;
 	}
