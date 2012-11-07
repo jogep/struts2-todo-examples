@@ -33,6 +33,5 @@
 
 <sj:dialog id="todoDialog" modal="true" title="TODO Dialog" autoOpen="false" width="900" height="680" closeTopics="/todo/dialog/close" />
 
-<s:debug/>
 </body>
 </html>
