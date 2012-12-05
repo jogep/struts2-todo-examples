@@ -4,13 +4,15 @@
 <ul class="nav nav-list todo-list">
 	        <s:iterator value="items">
 		        <li id="todoItem${id}">
-			        <s:if test="done">
-				        <span id="todoTopic${id}" class="todo-done"><s:property value="topic"/></span>
-			        </s:if>
-			        <s:else>
-				        <span id="todoTopic${id}"><s:property value="topic"/></span>
-			        </s:else>
-			        <s:if test="description != null">
+                    <s:if test="done">
+                        <s:set var="todoClass">todo-done</s:set>
+                    </s:if>
+                    <s:else>
+                        <s:set var="todoClass"></s:set>
+                    </s:else>
+                    <span id="todoTopic${id}" class="${todoClass}"><s:property value="topic"/></span>
+
+ 			        <s:if test="description != null">
 				        <span id="todoTopicDescription${id}" class="todo-description">
 					        <i class="icon-info-sign"></i>
 				            <span id="todoTopicDescriptionContent${id}" class="todo-description-content">
@@ -18,6 +20,7 @@
 				            </span>
 				        </span>
 			        </s:if>
+
 			        <s:if test="category != null">
 				        <s:url var="listurl" action="todo-list" namespace="/">
 					        <s:param name="category" value="category" />
