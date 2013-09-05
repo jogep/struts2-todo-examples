@@ -5,12 +5,12 @@
 	        <s:iterator value="items">
 		        <li id="todoItem${id}">
                     <s:if test="done">
-                        <s:set var="todoClass">todo-done</s:set>
+                        <s:set var="todoCss">todo-done</s:set>
                     </s:if>
                     <s:else>
-                        <s:set var="todoClass"></s:set>
+                        <s:set var="todoCss">todo-not-done</s:set>
                     </s:else>
-                    <span id="todoTopic${id}" class="${todoClass}"><s:property value="topic"/></span>
+                    <span id="todoTopic${id}" class="todo-title ${todoCss}"><s:property value="topic"/></span>
 
  			        <s:if test="description != null">
 				        <span id="todoTopicDescription${id}" class="todo-description">

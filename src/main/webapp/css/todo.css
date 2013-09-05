@@ -18,8 +18,11 @@ body {
 }
 
 .todo-list > li:hover {
-	background-color: #0088CC;
-	color: #fff
+    background-color: #0088CC;
+}
+
+.todo-list > li:hover > span.todo-title {
+    color: #fff
 }
 .todo-done {
 	text-decoration: line-through;
