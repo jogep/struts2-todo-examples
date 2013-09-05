@@ -1,5 +1,3 @@
-<?xml version="1.0" ?>
-<!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
@@ -12,6 +10,7 @@
 	}
 %>
 <s:if test="#attr['decorate']">
+<!DOCTYPE html>
 <html>
 <head>
     <title>
@@ -23,7 +22,7 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <sj:head jqueryui="true" locale="de" loadAtOnce="true" defaultIndicator="indicator"/>
-	<sb:head includeStylesResponsive="true"/>
+	<sb:head includeStylesResponsive="true" />
     <link rel="stylesheet" href='<s:url namespace="/css" action="todo.css"/>' type="text/css"/>
 	<script src="<s:url value="/js/todo.js" />"></script>
 	<decorator:head/>
