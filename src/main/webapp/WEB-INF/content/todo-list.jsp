@@ -14,7 +14,7 @@
 
  			        <s:if test="description != null">
 				        <span id="todoTopicDescription${id}" class="todo-description">
-					        <i class="icon-info-sign"></i>
+					        <i class="glyphicon glyphicon-info-sign"></i>
 				            <span id="todoTopicDescriptionContent${id}" class="todo-description-content">
 						       <s:property value="description" escapeHtml="false" />
 				            </span>
@@ -27,7 +27,7 @@
 						</s:url>
 					    <span id="todoTopicCategory${id}" class="todo-category badge badge-info">
 				            <sj:a id="todoTopicCategory%{id}Link" href="%{listurl}" targets="todoListContent" cssClass="todo-category-link">
-				                <i class="icon-tag"></i> <s:property value="category" />
+				                <i class="glyphicon glyphicon-tag"></i> <s:property value="category" />
 				            </sj:a>
 					    </span>
 			        </s:if>
@@ -36,18 +36,18 @@
 					            <s:url var="doneurl" action="todo-done" namespace="/">
 						            <s:param name="id" value="%{id}"/>
 					            </s:url>
-					            <sj:a id="todoDoneLink%{id}" href="%{doneurl}" dataType="json" onSuccessTopics="/todo/status"><i class="icon-ok"></i></sj:a>
+					            <sj:a id="todoDoneLink%{id}" href="%{doneurl}" dataType="json" onSuccessTopics="/todo/status"><i class="glyphicon glyphicon-ok"></i></sj:a>
 			                </s:if>
 
 							<s:url var="editurl" action="todo-edit" namespace="/" escapeAmp="false">
 								<s:param name="id" value="%{id}"/>
 							</s:url>
-							<sj:a id="todoEditLink%{id}" href="%{editurl}" openDialog="todoDialog" openDialogTitle="Edit %{topic}"><i class="icon-pencil"></i></sj:a>
+							<sj:a id="todoEditLink%{id}" href="%{editurl}" openDialog="todoDialog" openDialogTitle="Edit %{topic}"><i class="glyphicon glyphicon-pencil"></i></sj:a>
 
 							<s:url var="deleteurl" action="todo-delete" namespace="/" escapeAmp="false">
 								<s:param name="id" value="%{id}"/>
 							</s:url>
-							<sj:a id="todoRemoveLink%{id}" href="%{deleteurl}" dataType="json" onSuccessTopics="/todo/remove"><i class="icon-trash"></i></sj:a>
+							<sj:a id="todoRemoveLink%{id}" href="%{deleteurl}" dataType="json" onSuccessTopics="/todo/remove"><i class="glyphicon glyphicon-trash"></i></sj:a>
 						</span>
 			        <s:if test="dueDate != null">
                         <s:url var="listurl" action="todo-list" namespace="/">

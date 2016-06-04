@@ -5,29 +5,31 @@
 <head><title>Manage Your TODOs</title></head>
 <body>
 
-<div class="row-fluid">
-    <div class="span4">
+<div class="row">
+    <div class="col-md-4">
 
         <s:fielderror theme="bootstrap"/>
 
-        <s:form id="todoAddForm" action="todo-save" namespace="/" theme="bootstrap" cssClass="form-inline" label="New TODO ...">
-            <div class="input-append">
-                <s:textfield name="item.topic" label="TODO" tooltip="TODO Topic" theme="simple"/>
-                <sj:submit
-		                cssClass="btn btn-primary"
-		                cssStyle="height: 30px"
-		                value="Add"
-		                formIds="todoAddForm"
-		                targets="todoListContent"
-		                clearForm="true"
-		                validate="true"
-		                validateFunction="bootstrapValidation"
-		        />
+        <s:form id="todoAddForm" action="todo-save" namespace="/" theme="bootstrap" cssClass="well form-inline" label="New TODO ...">
+            <div class="input-group">
+                <s:textfield name="item.topic" label="TODO" tooltip="TODO Topic" theme="simple" cssClass="form-control"/>
+				<span class="input-group-btn">
+					<sj:submit
+							cssClass="btn btn-primary"
+							cssStyle="height: 30px"
+							value="Add"
+							formIds="todoAddForm"
+							targets="todoListContent"
+							clearForm="true"
+							validate="true"
+							validateFunction="bootstrapValidation"
+					/>
+				</span>
             </div>
         </s:form>
     </div>
 	<s:url var="listurl" action="todo-list" namespace="/" />
-	<sj:div id="todoListContent" cssClass="span8" href="%{listurl}">
+	<sj:div id="todoListContent" cssClass="col-md-8" href="%{listurl}">
     </sj:div>
 </div>
 

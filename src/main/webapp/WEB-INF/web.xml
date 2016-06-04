@@ -27,7 +27,7 @@
     </filter>
     <filter>
         <filter-name>struts-prepare</filter-name>
-        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareFilter</filter-class>
+        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareFilter</filter-class>
     </filter>
 
     <filter>
@@ -37,7 +37,7 @@
 
     <filter>
         <filter-name>struts-execute</filter-name>
-        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsExecuteFilter</filter-class>
+        <filter-class>org.apache.struts2.dispatcher.filter.StrutsExecuteFilter</filter-class>
     </filter>
 
     <filter-mapping>
