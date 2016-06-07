@@ -31,8 +31,10 @@ public class TodoListAction implements Action {
 	public String execute() throws Exception {
 
 		Criteria criteria = todoItemService.createCriteria();
-		if(category != null) criteria.add(Restrictions.eq("category", category)) ;
-		if(dueDate != null) criteria.add(Restrictions.eq("dueDate", dueDate)) ;
+		if(category != null) 
+			criteria.add(Restrictions.eq("category", category)) ;
+		if(dueDate != null) 
+			criteria.add(Restrictions.eq("dueDate", dueDate)) ;
 
 		items = todoItemService.list(criteria);
 
