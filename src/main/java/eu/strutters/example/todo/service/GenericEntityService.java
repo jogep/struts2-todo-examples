@@ -108,9 +108,8 @@ public abstract class GenericEntityService<T, I extends Serializable> {
 	}
 
 
-	public
 	@Nullable
-	<M> M first(List<M> list) {
+	public <M> M first(List<M> list) {
 		if (list != null && list.size() > 0) {
 			return list.get(0);
 		} else {
