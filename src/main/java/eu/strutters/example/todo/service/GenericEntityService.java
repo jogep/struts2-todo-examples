@@ -57,7 +57,7 @@ public abstract class GenericEntityService<T, I extends Serializable> {
 	}
 
 	public <M extends T> List<M> bulkSaveOrUpdate(M... modelObject) {
-		final List<M> result = new ArrayList<M>();
+		final List<M> result = new ArrayList<>();
 		for (M m : modelObject) {
 			getCurrentSession().saveOrUpdate(m);
 			result.add(m);
@@ -122,7 +122,7 @@ public abstract class GenericEntityService<T, I extends Serializable> {
 		if (toSave == null || toSave.isEmpty()) {
 			return Collections.emptyList();
 		}
-		List<M> result = new ArrayList<M>(toSave.size());
+		List<M> result = new ArrayList<>(toSave.size());
 		for (M m : toSave) {
 			result.add(saveOrUpdate(m));
 		}
@@ -137,7 +137,7 @@ public abstract class GenericEntityService<T, I extends Serializable> {
 		if (toSave == null || toSave.isEmpty()) {
 			return Collections.emptyList();
 		}
-		List<M> result = new ArrayList<M>(toSave.size());
+		List<M> result = new ArrayList<>(toSave.size());
 		for (M m : toSave) {
 			result.add((M) merge(m));
 		}
